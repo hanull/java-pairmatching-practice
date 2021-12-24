@@ -22,4 +22,20 @@ public class Menu {
 	private boolean isValidMenu(String menu) {
 		return Constants.MENU_LIST.contains(menu);
 	}
+
+	public boolean isQuit() {
+		return menu.equals(Constants.QUIT);
+	}
+
+	public boolean isPairMatching() {
+		return menu.equals(Constants.PAIR_MATCHING);
+	}
+
+	public boolean findPair() {
+		return menu.equals(Constants.FIND_PAIR);
+	}
+
+	public boolean initializePair() {
+		return menu.equals(Constants.INITIALIZE_PAIR);
+	}
 }
