@@ -49,4 +49,8 @@ public class Pairs {
 	public List<Pair> getPairs(Mission mission) {
 		return pairs.get(mission);
 	}
+
+	public void initialize() {
+		pairs.clear();
+	}
 }

@@ -47,8 +47,12 @@ public class PairMatchingController {
 			findPair();
 		}
 		if (menu.initializePair()) {
-
+			initializePair();
 		}
+	}
+
+	private void initializePair() {
+		pairs.initialize();
 	}
 
 	private void findPair() {
