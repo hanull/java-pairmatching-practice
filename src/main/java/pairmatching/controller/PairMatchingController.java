@@ -44,10 +44,24 @@ public class PairMatchingController {
 			pairMatching();
 		}
 		if (menu.findPair()) {
-
+			findPair();
 		}
 		if (menu.initializePair()) {
 
+		}
+	}
+
+	private void findPair() {
+		try {
+			OutputView.printInputMatchingInformation();
+			Mission mission = InputView.inputMatchingInformation();
+			if (!pairs.isAlreadyMatching(mission)) {
+				throw new IllegalArgumentException(Message.ERROR_NO_MATCHING_HISTORY);
+			}
+			OutputView.printPairs(pairs.getPairs(mission));
+		} catch (Exception exception) {
+			OutputView.printException(exception);
+			findPair();
 		}
 	}
 
