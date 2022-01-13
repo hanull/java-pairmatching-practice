@@ -15,13 +15,19 @@ public class FileUploadUtils {
 	private static final String FRONTEND_FILE = "src/main/resources/frontend-crew.md";
 	private static final String BACKEND_FILE = "src/main/resources/backend-crew.md";
 
-	public static Crews initializeCrews() {
+	public static Crews initializeBackendCrews() {
+		return getCrews(BACKEND_FILE, Course.BACKEND);
+	}
+
+	public static Crews initializeFrontendCrews() {
+		return getCrews(FRONTEND_FILE, Course.FRONTEND);
+	}
+
+	private static Crews getCrews(String crewsFile, Course course) {
 		try {
 			List<Crew> crews = new ArrayList<>();
-			FileReader backendFile = new FileReader(BACKEND_FILE);
-			FileReader frontendFile = new FileReader(FRONTEND_FILE);
-			addCrews(new BufferedReader(frontendFile), crews, Course.FRONTEND);
-			addCrews(new BufferedReader(backendFile), crews, Course.BACKEND);
+			FileReader file = new FileReader(crewsFile);
+			addCrews(new BufferedReader(file), crews, course);
 			return new Crews(crews);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -29,10 +35,10 @@ public class FileUploadUtils {
 		}
 	}
 
-	private static void addCrews(BufferedReader crewsBuffered, List<Crew> crews, Course frontend) throws IOException {
+	private static void addCrews(BufferedReader crewsBuffered, List<Crew> crews, Course course) throws IOException {
 		String name;
 		while ((name = crewsBuffered.readLine()) != null) {
-			crews.add(new Crew(frontend, name));
+			crews.add(new Crew(course, name));
 		}
 	}
 }

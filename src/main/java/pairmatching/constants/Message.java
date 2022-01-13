@@ -23,4 +23,8 @@ public final class Message {
 	public static final String ERROR_NOT_FOUND_LEVEL = "해당 레벨을 찾을 수 없습니다.";
 	public static final String ERROR_INVALID_INFORMATION_INPUT_TYPE = "과정, 레벨, 미션 형식으로 입력해주세요.";
 	public static final String ERROR_NOT_FOUND_MISSION = "해당 미션을 찾을 수 없습니다.";
+	public static final String ERROR_IMPOSSIBLE_MATCHING = "매칭에 실패했습니다.";
+	public static final String INPUT_REMATCHING_OR_NOT = "매칭 정보가 있습니다. 다시 매칭하시겠습니까?\n"
+		+ "네 | 아니오";
+	public static final String ERROR_INVALID_INPUT_REMATCHING_OR_NOT = "\"네\", \"아니오\"로 대답해주세요.";
 }

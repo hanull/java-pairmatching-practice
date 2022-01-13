@@ -1,7 +1,10 @@
 package pairmatching.view;
 
+import java.util.List;
+
 import pairmatching.constants.Constants;
 import pairmatching.constants.Message;
+import pairmatching.domain.Pair;
 
 public class OutputView {
 
@@ -20,5 +23,16 @@ public class OutputView {
 
 	private static void printNewLine() {
 		System.out.println();
+	}
+
+	public static void printPairs(List<Pair> pairs) {
+		for (Pair pair : pairs) {
+			System.out.println(pair);
+		}
+		printNewLine();
+	}
+
+	public static void printReMatchingOrNot() {
+		System.out.println(Message.INPUT_REMATCHING_OR_NOT);
 	}
 }

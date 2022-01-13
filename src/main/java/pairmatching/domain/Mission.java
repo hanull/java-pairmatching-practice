@@ -1,20 +1,22 @@
 package pairmatching.domain;
 
+import java.util.Objects;
+
 import pairmatching.constants.Constants;
 import pairmatching.constants.Message;
 
-public class MatchingInformation {
+public class Mission {
 
 	private Course course;
 	private Level level;
-	private String mission;
+	private String missionName;
 
-	public MatchingInformation(String inputInformation) {
+	public Mission(String inputInformation) {
 		String[] information = inputInformation.split(Constants.COMMA);
 		validateInputInformation(information);
 		this.course = Course.fromName(trimString(information[0]));
 		this.level = Level.fromName(trimString(information[1]));
-		this.mission = trimString(information[2]);
+		this.missionName = trimString(information[2]);
 	}
 
 	private String trimString(String information) {
@@ -50,5 +52,29 @@ public class MatchingInformation {
 
 	private boolean isValidInformation(int length) {
 		return length == Constants.INFORMATION_LENGTH;
+	}
+
+	public Course getCourse() {
+		return course;
+	}
+
+	public Level getLevel() {
+		return level;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Mission mission = (Mission)o;
+		return course == mission.course && level == mission.level && Objects.equals(missionName,
+			mission.missionName);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(course, level, missionName);
 	}
 }
